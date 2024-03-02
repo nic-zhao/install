@@ -912,6 +912,10 @@ fi
 
 ohai "Downloading and installing Homebrew..."
 (
+  git config --global core.compression -1
+  git config --global http.postBuffer 1048576000
+  git config --global http.lowSpeedLimit 0
+  git config --global http.lowSpeedTime 999999
   cd "${HOMEBREW_REPOSITORY}" >/dev/null || return
 
   # we do it in four steps to avoid merge errors when reinstalling
